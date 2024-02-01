@@ -30,4 +30,11 @@ steps:
   inputs:
     command: 'build'
     projects: '$(solution)'
-    arguments: '--configuration $(buildConfiguration) --no-restore'
+    arguments: '--configuration $(buildConfiguration) --no-restore --output $(Build.ArtifactStagingDirectory)'
+
+# Add this step to publish the build artifacts
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)' # This is the folder where the build output is placed
+    ArtifactName: 'drop' # Name of the artifact
+    publishLocation: 'Container' # This publishes to Azure Pipelines
