@@ -16,11 +16,6 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: UseDotNet@2
-  inputs:
-    packageType: 'sdk'
-    version: '8.0'
-    installationPath: $(Agent.ToolsDirectory)/dotnet
 - task: NuGetToolInstaller@1
   inputs:
     checkLatest: true # This will fetch the latest available NuGet version
