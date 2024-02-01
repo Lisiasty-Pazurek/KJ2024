@@ -25,7 +25,7 @@ steps:
     includePreviewVersions: true
 - task: NuGetToolInstaller@1
   inputs:
-    checkLatest: true # This will fetch the latest available NuGet version
+    versionSpec: '6.x' # Update to the latest compatible NuGet version for .NET 8
     
 - task: DotNetCoreCLI@2
   inputs:
