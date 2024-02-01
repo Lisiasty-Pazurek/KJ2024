@@ -15,7 +15,14 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
+
+
 steps:
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '8.x'
+    includePreviewVersions: true
 - task: NuGetToolInstaller@1
   inputs:
     checkLatest: true # This will fetch the latest available NuGet version
